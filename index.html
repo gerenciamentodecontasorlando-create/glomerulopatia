@@ -1,0 +1,967 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glomerulopatias — Tratamento, Condutas e Posologias (Adulto & Pediatria)</title>
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#111a33;
+      --card2:#0f1730;
+      --text:#e9eefc;
+      --muted:#b8c3e6;
+      --line:#223064;
+      --accent:#4aa3ff;
+      --accent2:#8d6bff;
+      --warn:#ffcc66;
+      --danger:#ff6b6b;
+      --ok:#6bffb3;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 10% 10%, rgba(74,163,255,.18), transparent 60%),
+                  radial-gradient(900px 700px at 80% 20%, rgba(141,107,255,.16), transparent 55%),
+                  linear-gradient(180deg, #070a14, var(--bg));
+      color:var(--text);
+      line-height:1.45;
+    }
+    a{color:var(--accent)}
+    header{
+      padding:26px 18px 10px;
+      max-width:1200px;
+      margin:0 auto;
+    }
+    .title{
+      display:flex; gap:14px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap;
+    }
+    .title h1{
+      margin:0;
+      font-size:1.25rem;
+      letter-spacing:.2px;
+    }
+    .subtitle{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:.96rem;
+      max-width:900px;
+    }
+    .pillbar{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px}
+    .pill{
+      padding:7px 10px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      border-radius:999px;
+      font-size:.82rem;
+      color:var(--muted);
+    }
+    .wrap{max-width:1200px; margin:0 auto; padding:14px 18px 30px}
+    .grid{
+      display:grid;
+      grid-template-columns: 330px 1fr;
+      gap:14px;
+    }
+    @media (max-width: 980px){
+      .grid{grid-template-columns:1fr}
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:16px;
+      padding:14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .card h2{
+      font-size:1rem;
+      margin:0 0 10px;
+      display:flex; gap:10px; align-items:center;
+    }
+    .badge{
+      font-size:.72rem;
+      padding:3px 8px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(74,163,255,.09);
+      color:#d7ebff;
+    }
+    .muted{color:var(--muted)}
+    .danger{color:var(--danger)}
+    .warn{color:var(--warn)}
+    .ok{color:var(--ok)}
+    .nav{
+      display:flex; flex-direction:column; gap:8px;
+    }
+    .nav button{
+      text-align:left;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.12);
+      color:var(--text);
+      padding:10px 10px;
+      border-radius:12px;
+      cursor:pointer;
+      transition:.12s ease;
+      font-size:.92rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+    }
+    .nav button:hover{transform:translateY(-1px); border-color: rgba(74,163,255,.35)}
+    .nav button.active{
+      background: linear-gradient(90deg, rgba(74,163,255,.22), rgba(141,107,255,.18));
+      border-color: rgba(74,163,255,.45);
+    }
+    .k{
+      font-size:.72rem; color:var(--muted);
+      border:1px solid rgba(255,255,255,.12);
+      padding:2px 7px; border-radius:999px;
+      background:rgba(255,255,255,.04);
+      white-space:nowrap;
+    }
+    .content section{display:none}
+    .content section.active{display:block}
+    .toc{
+      display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;
+    }
+    .chip{
+      border:1px solid rgba(255,255,255,.12);
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(0,0,0,.10);
+      color:var(--muted);
+      font-size:.82rem;
+      cursor:pointer;
+    }
+    .chip:hover{border-color: rgba(141,107,255,.35); color: var(--text)}
+    .callout{
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
+      border-left:5px solid rgba(255,204,102,.85);
+      padding:12px;
+      border-radius:14px;
+      margin:10px 0;
+    }
+    .callout strong{color:#fff}
+    .cols{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width: 900px){ .cols{grid-template-columns:1fr} }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin:10px 0 0;
+      overflow:hidden;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.12);
+    }
+    th, td{
+      padding:10px 10px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      vertical-align:top;
+      font-size:.9rem;
+    }
+    th{color:#dbe6ff; text-align:left; background:rgba(255,255,255,.05)}
+    tr:last-child td{border-bottom:none}
+    .small{font-size:.84rem}
+    .hr{
+      height:1px; background:rgba(255,255,255,.10); margin:12px 0;
+    }
+    .row{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:flex-end;
+    }
+    label{display:block; color:var(--muted); font-size:.82rem; margin-bottom:6px}
+    input, select{
+      background:rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.12);
+      color:var(--text);
+      padding:10px 10px;
+      border-radius:12px;
+      min-width: 160px;
+      outline:none;
+    }
+    input:focus, select:focus{border-color: rgba(74,163,255,.55)}
+    .btn{
+      border:1px solid rgba(255,255,255,.12);
+      background: linear-gradient(90deg, rgba(74,163,255,.22), rgba(141,107,255,.18));
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:12px;
+      cursor:pointer;
+    }
+    .btn:active{transform: translateY(1px)}
+    .result{
+      margin-top:10px;
+      padding:10px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.12);
+      color:#dbe6ff;
+      font-size:.92rem;
+    }
+    footer{
+      max-width:1200px;
+      margin:0 auto;
+      padding:10px 18px 26px;
+      color:var(--muted);
+      font-size:.85rem;
+    }
+    code.inline{
+      padding:2px 6px;
+      border-radius:8px;
+      background:rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.10);
+      color:#dbe6ff;
+    }
+    .mini{
+      font-size:.8rem;
+      color:var(--muted);
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="title">
+    <div>
+      <h1>Glomerulopatias — condutas + posologias (adulto e pediatria)</h1>
+      <p class="subtitle">
+        Um “mapa de guerra” prático: suporte + tratamento específico por etiologia (MCD, FSGS, MN, IgAN/IgAV, GN rapidamente progressiva — ANCA/anti-GBM, lúpus, MPGN/C3G etc.).
+        Inclui esquemas <b>orais e injetáveis</b>. <span class="warn">Uso educacional</span>.
+      </p>
+      <div class="pillbar">
+        <span class="pill">Foco: conduta clínica</span>
+        <span class="pill">Dose: adulto + mg/kg + mg/m²</span>
+        <span class="pill">Injetáveis: pulsoterapia, RTX, CF, PLEX</span>
+        <span class="pill">Ajuste por eGFR/peso/BSA</span>
+      </div>
+    </div>
+    <div class="pillbar">
+      <span class="pill">Base: KDIGO 2021 GD</span>
+      <span class="pill">KDIGO 2025 NS crianças</span>
+      <span class="pill">KDIGO 2025 IgAN/IgAV update</span>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>⚠️ Aviso importante (segurança):</strong>
+    As posologias abaixo são <b>referenciais</b> e podem variar por protocolo local, função renal/hepática, comorbidades, risco infeccioso e histologia.
+    Glomerulopatias com atividade intensa (p.ex. crescentes, síndrome pulmão-rim, nefrose complicada) pedem <b>nefrologia urgente</b> e, muitas vezes, internação.
+    Não use isso para automedicação.
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="grid">
+    <!-- LEFT -->
+    <aside class="card">
+      <h2>Menu rápido <span class="badge">clique</span></h2>
+      <div class="nav" id="nav">
+        <button class="active" data-target="sec0">Visão geral & suporte <span class="k">BASE</span></button>
+        <button data-target="secCalc">Calculadoras (mg/kg e BSA) <span class="k">DOSE</span></button>
+        <button data-target="sec1">Síndrome nefrótica (MCD/FSGS) <span class="k">NEFROSE</span></button>
+        <button data-target="sec2">Nefropatia membranosa (MN) <span class="k">MN</span></button>
+        <button data-target="sec3">IgA (IgAN / IgAV) <span class="k">IgA</span></button>
+        <button data-target="sec4">Lúpus (NeF) <span class="k">SLE</span></button>
+        <button data-target="sec5">ANCA / RPGN / Pulmão-rim <span class="k">URGE</span></button>
+        <button data-target="sec6">Anti-GBM <span class="k">PLEX</span></button>
+        <button data-target="sec7">MPGN & C3 Glomerulopatia <span class="k">C3G</span></button>
+        <button data-target="sec8">Pós-infecciosa & GN associada à infecção <span class="k">INF</span></button>
+        <button data-target="sec9">Complicações & profilaxias <span class="k">PJP/VAC</span></button>
+        <button data-target="sec10">Quadros “de emergência” (quando correr) <span class="k">RED</span></button>
+        <button data-target="secRef">Referências (links) <span class="k">KDIGO</span></button>
+      </div>
+
+      <div class="hr"></div>
+      <div class="mini">
+        Dica prática: pense em 3 camadas<br/>
+        <b>1)</b> suporte (PA, proteinúria, edema, trombose)<br/>
+        <b>2)</b> sindrômico (nefrótico / nefrítico / RPGN)<br/>
+        <b>3)</b> etiologia (biópsia/serologias) → alvo do imunossupressor.
+      </div>
+    </aside>
+
+    <!-- RIGHT -->
+    <main class="content card">
+      <!-- sec0 -->
+      <section id="sec0" class="active">
+        <h2>Visão geral & conduta de suporte <span class="badge">primeiro salva rim</span></h2>
+
+        <div class="toc">
+          <span class="chip" onclick="jump('suporte')">Suporte</span>
+          <span class="chip" onclick="jump('workup')">Workup</span>
+          <span class="chip" onclick="jump('bp')">PA & proteinúria</span>
+          <span class="chip" onclick="jump('edema')">Edema</span>
+          <span class="chip" onclick="jump('lipid')">Dislipidemia</span>
+          <span class="chip" onclick="jump('anticoag')">Trombose</span>
+        </div>
+
+        <div id="workup" class="hr"></div>
+        <h3>1) “Workup” mínimo (antes de tacar imunossupressor)</h3>
+        <ul>
+          <li><b>Urina:</b> EAS + sedimento (hemácias dismórficas/cilindros), relação proteína/creatinina (UPC) ou albumina/creatinina, urocultura se suspeita de infecção.</li>
+          <li><b>Rim:</b> creatinina/eGFR, ureia, eletrólitos, albumina, perfil lipídico, hemograma, ferritina/transferrina se necessário.</li>
+          <li><b>Imunologia/infecção (depende do fenótipo):</b> C3/C4, ANA, anti-dsDNA, ANCA, anti-GBM, sorologias (HBV/HCV/HIV), ASLO/anti-DNase B se pós-estrepto, crioglobulinas quando indicado.</li>
+          <li><b>Imagem:</b> US rins/VIAS urinárias (tamanho, ecogenicidade, obstrução).</li>
+          <li><b>Biópsia renal:</b> quase sempre que: proteinúria nefrótica no adulto sem causa óbvia, hematuria glomerular + queda de eGFR, suspeita de RPGN, dúvida diagnóstica, falha terapêutica.</li>
+        </ul>
+
+        <div id="suporte" class="hr"></div>
+        <h3>2) Suporte que vale ouro (quase todo mundo)</h3>
+
+        <div class="cols">
+          <div class="callout" style="border-left-color: rgba(74,163,255,.8)">
+            <strong>RAAS / proteinúria</strong><br/>
+            <ul class="small">
+              <li><b>IECA/ARA-II</b> para reduzir albuminúria/proteinúria (se tolerado). Monitorar K+ e creatinina 7–14 dias após iniciar/ajustar.</li>
+              <li>Objetivo prático: <b>reduzir proteinúria</b> e controlar PA.</li>
+            </ul>
+            <div class="mini">Evitar iniciar/elevar dose em hipovolemia/IRA aguda.</div>
+          </div>
+
+          <div class="callout" style="border-left-color: rgba(141,107,255,.8)">
+            <strong>Restrição de sal + diurético</strong><br/>
+            <ul class="small">
+              <li><b>Sal:</b> geralmente 2 g/dia de sódio (individualizar).</li>
+              <li><b>Furosemida</b> (oral/IV) é o “cavalo de batalha” do edema; às vezes precisa associar tiazídico/metolazona (sob supervisão) na resistência.</li>
+            </ul>
+            <div class="mini">Atenção a hipovolemia, hiponatremia, hipocalemia, ototoxicidade em altas doses IV.</div>
+          </div>
+        </div>
+
+        <div id="bp" class="hr"></div>
+        <h3>3) PA e meta clínica</h3>
+        <ul>
+          <li>Em glomerulopatias com proteinúria, PA bem controlada muda história natural.</li>
+          <li>Meta varia por diretriz e paciente; como norte: <b>controle rigoroso</b> sem hipotensão sintomática.</li>
+        </ul>
+
+        <div id="edema" class="hr"></div>
+        <h3>4) Edema (nefrótico): esquema prático</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Passo</th>
+              <th>Conduta</th>
+              <th>Dose típica (adulto) / pediatria</th>
+              <th>Detalhes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>1</b></td>
+              <td>Restrição de sal + água (se hiponatremia/edema grave)</td>
+              <td>Individualizar</td>
+              <td>Monitorar peso, diurese, PA, Na/K.</td>
+            </tr>
+            <tr>
+              <td><b>2</b></td>
+              <td><b>Furosemida</b> VO/IV</td>
+              <td>
+                Adulto: 20–80 mg VO, ajustar; IV 20–80 mg (pode escalar)<br/>
+                Pediatria: 0,5–2 mg/kg/dose (VO/IV), ajustar
+              </td>
+              <td>Resistência pode exigir doses maiores, fracionar, ou associar outro diurético (nefro acompanha).</td>
+            </tr>
+            <tr>
+              <td><b>3</b></td>
+              <td>Associação (p.ex. tiazídico/metolazona) — <span class="warn">especialista</span></td>
+              <td>Ex.: HCTZ 12,5–25 mg/d (adulto) / pediatria por kg</td>
+              <td>Risco alto de distúrbios eletrolíticos. Monitorar de perto.</td>
+            </tr>
+            <tr>
+              <td><b>4</b></td>
+              <td>Albumina IV + diurético (edema refratário com hipoalbuminemia importante)</td>
+              <td>Protocolos variam</td>
+              <td>Usar com critério (hipervolemia/pulmão congesto = perigo).</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div id="lipid" class="hr"></div>
+        <h3>5) Dislipidemia (nefrótico)</h3>
+        <ul>
+          <li>Se persistente, considerar estatina conforme risco CV e diretriz local.</li>
+        </ul>
+
+        <div id="anticoag" class="hr"></div>
+        <h3>6) Trombose no nefrótico (DVT/TEP, trombose de veia renal)</h3>
+        <ul>
+          <li>Risco aumenta com <b>albumina muito baixa</b>, proteinúria intensa, imobilidade, cateter, neoplasia, etc.</li>
+          <li>Profilaxia/anticoagulação: individualizar (risco trombose x sangramento). Em dúvida, nefro + clínica médica/hematologia.</li>
+        </ul>
+      </section>
+
+      <!-- secCalc -->
+      <section id="secCalc">
+        <h2>Calculadoras rápidas (dose mg/kg e BSA) <span class="badge">pediatria</span></h2>
+        <p class="muted">Ajuda a não “errar conta”. Mesmo assim: sempre confira teto (máximo/dia) e protocolo do serviço.</p>
+
+        <div class="cols">
+          <div class="card" style="padding:14px">
+            <h3 style="margin:0 0 8px">Dose mg/kg</h3>
+            <div class="row">
+              <div>
+                <label>Peso (kg)</label>
+                <input id="w" type="number" step="0.1" placeholder="ex.: 18" />
+              </div>
+              <div>
+                <label>Dose (mg/kg/dose)</label>
+                <input id="mgkg" type="number" step="0.1" placeholder="ex.: 2" />
+              </div>
+              <div>
+                <label>Frequência</label>
+                <select id="freq">
+                  <option value="1">1x/dia</option>
+                  <option value="2">2x/dia</option>
+                  <option value="3">3x/dia</option>
+                  <option value="4">4x/dia</option>
+                </select>
+              </div>
+              <button class="btn" onclick="calcMgKg()">Calcular</button>
+            </div>
+            <div class="result" id="outMgKg">—</div>
+            <div class="mini">Exemplo: prednisona 2 mg/kg/dia → aqui você põe 2 e frequência 1.</div>
+          </div>
+
+          <div class="card" style="padding:14px">
+            <h3 style="margin:0 0 8px">BSA (Mosteller) + dose mg/m²</h3>
+            <div class="row">
+              <div>
+                <label>Peso (kg)</label>
+                <input id="w2" type="number" step="0.1" placeholder="ex.: 18" />
+              </div>
+              <div>
+                <label>Altura (cm)</label>
+                <input id="h2" type="number" step="0.1" placeholder="ex.: 112" />
+              </div>
+              <div>
+                <label>Dose (mg/m²/dia)</label>
+                <input id="mgm2" type="number" step="0.1" placeholder="ex.: 60" />
+              </div>
+              <button class="btn" onclick="calcBSA()">Calcular</button>
+            </div>
+            <div class="result" id="outBSA">—</div>
+            <div class="mini">Muito usado no nefrótico infantil (pred 60 mg/m²/dia, com teto).</div>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>Regra de ouro:</strong> pediatria costuma ter <b>teto (máximo)</b>, ex.: prednisona 60 mg/dia no esquema inicial de síndrome nefrótica (citar KDIGO 2025 crianças).
+        </div>
+      </section>
+
+      <!-- sec1 -->
+      <section id="sec1">
+        <h2>Síndrome nefrótica — MCD e FSGS <span class="badge">nefrótico</span></h2>
+
+        <h3>Como pensar</h3>
+        <ul>
+          <li><b>MCD (Doença de lesões mínimas):</b> comum em crianças; em adultos existe (às vezes com IRA por hipovolemia/edema).</li>
+          <li><b>FSGS:</b> pode ser primária (podocitopatia) ou secundária (obesidade, refluxo, redução de massa renal, drogas, vírus etc.).</li>
+          <li>Antes de imunossupressor: excluir causas secundárias (HIV, HBV/HCV, fármacos, obesidade, redução de néfrons, etc.) e avaliar biópsia no adulto.</li>
+        </ul>
+
+        <div class="hr"></div>
+        <h3>Tratamento — Crianças (síndrome nefrótica esteroide-sensível: “o clássico”)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Fase</th>
+              <th>Prednisona/Prednisolona (VO)</th>
+              <th>Observações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Inicial</b></td>
+              <td><b>60 mg/m²/dia</b> ou <b>2 mg/kg/dia</b> (máx. 60 mg/d) por 4 semanas</td>
+              <td>Esquema padrão (KDIGO 2025 NS crianças).</td>
+            </tr>
+            <tr>
+              <td><b>Depois</b></td>
+              <td><b>40 mg/m²</b> ou <b>1,5 mg/kg</b> (máx. 40 mg) em dias alternados por 4 semanas</td>
+              <td>Depois costuma haver desmame conforme resposta/recidiva.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout">
+          <strong>Recidivante / dependente de corticoide:</strong> entra o “time poupador” (ciclofosfamida, inibidor de calcineurina, micofenolato, rituximabe) — sempre com nefropediatria.
+        </div>
+
+        <div class="hr"></div>
+        <h3>Tratamento — Adultos</h3>
+        <div class="cols">
+          <div>
+            <h4>MCD (adulto)</h4>
+            <ul>
+              <li><b>Prednisona VO</b> alta dose: frequentemente <b>0,8–1 mg/kg/dia</b> (máx. ~80 mg/d) até remissão, depois desmame lento (protocolos variam).</li>
+              <li>Alternativas em recorrência/dependência: <b>ciclofosfamida</b>, <b>rituximabe</b>, <b>tacrolimo/ciclosporina</b>, <b>micofenolato</b> (conforme KDIGO 2021 GD).</li>
+            </ul>
+          </div>
+          <div>
+            <h4>FSGS primária (adulto)</h4>
+            <ul>
+              <li>Confirmar se é primária (síndrome nefrótica + lesão podocitária difusa) vs secundária.</li>
+              <li>Se primária: costuma-se usar <b>corticoide</b> (curso prolongado) ou <b>inibidor de calcineurina</b> em situações específicas (nefro define).</li>
+              <li>Se secundária: foco em <b>suporte</b> (RAAS, SGLT2 quando indicado, perda ponderal etc.) — imunossupressor geralmente não ajuda.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="hr"></div>
+        <h3>“Poupadores” — posologias usuais (referência rápida)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Droga</th>
+              <th>Adulto (típico)</th>
+              <th>Pediatria (típico)</th>
+              <th>Pontos de segurança</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Ciclofosfamida</b> (VO)</td>
+              <td>~2 mg/kg/dia por 8–12 semanas (protocolos variam)</td>
+              <td>2–2,5 mg/kg/dia por 8–12 semanas (p.ex. diretrizes pediátricas)</td>
+              <td>Hemograma seriado, risco infertilidade, cistite hemorrágica, infecção. Hidratação; considerar MESNA em esquemas IV.</td>
+            </tr>
+            <tr>
+              <td><b>Ciclofosfamida</b> (IV pulso)</td>
+              <td>0,5–1 g/m² mensal (muito usado em lúpus/vasculite; varia)</td>
+              <td>500–750 mg/m² mensal (varia por protocolo)</td>
+              <td>Protocolo do serviço manda. Ajustar por eGFR/idade/leucócitos.</td>
+            </tr>
+            <tr>
+              <td><b>Rituximabe</b> (IV)</td>
+              <td>375 mg/m² semanal x 4 <i>ou</i> 1 g IV no dia 1 e 15 (depende indicação)</td>
+              <td>375 mg/m² semanal x 1–4 (depende quadro)</td>
+              <td>Triar HBV (reativação), risco infecção, hipogamaglobulinemia; pré-medicação (anti-histamínico/antitérmico).</td>
+            </tr>
+            <tr>
+              <td><b>Tacrolimo</b> (VO)</td>
+              <td>0,05–0,1 mg/kg/dia (dividido 12/12h), ajustar por nível</td>
+              <td>Dose por kg e alvo de nível (nefroped ajusta)</td>
+              <td>Nefrotoxicidade, tremor, hiperglicemia; monitorar nível, creatinina, K+.</td>
+            </tr>
+            <tr>
+              <td><b>Micofenolato</b> (MMF, VO)</td>
+              <td>1–1,5 g 2x/dia (varia; muito usado em lúpus)</td>
+              <td>~600 mg/m² 2x/dia (varia)</td>
+              <td>Teratogênico, GI, citopenias; hemograma; contracepção.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- sec2 -->
+      <section id="sec2">
+        <h2>Nefropatia Membranosa (MN) <span class="badge">PLA2R</span></h2>
+        <h3>Ideia central</h3>
+        <ul>
+          <li>Muita MN hoje é autoimune (anti-PLA2R). Outra parte é secundária (HBV, neoplasia, drogas etc.).</li>
+          <li>Conduta depende de <b>risco de progressão</b> (proteinúria persistente, queda de eGFR, títulos, complicações).</li>
+        </ul>
+
+        <div class="hr"></div>
+        <h3>Suporte (sempre)</h3>
+        <ul>
+          <li>RAAS (IECA/ARA-II) para proteinúria, controle de PA, restrição de sal, manejo de edema, estatina se indicado.</li>
+          <li>Risco trombótico pode ser alto na MN com albumina muito baixa.</li>
+        </ul>
+
+        <div class="hr"></div>
+        <h3>Imunossupressão (quando indicada)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Opção</th>
+              <th>Esquema (exemplos)</th>
+              <th>Quando costuma entrar</th>
+              <th>Observações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Rituximabe (IV)</b></td>
+              <td>1 g IV D1 e D15 <i>ou</i> 375 mg/m² semanal x 4</td>
+              <td>Risco moderado/alto, doença persistente</td>
+              <td>Checar HBV; monitorar resposta (proteinúria/títulos).</td>
+            </tr>
+            <tr>
+              <td><b>Ciclofosfamida + corticoide</b></td>
+              <td>Protocolos “alternados” (variam por diretriz/serviço)</td>
+              <td>Risco alto / refratários / seleção clínica</td>
+              <td>Mais toxicidade; precisa follow-up bem apertado.</td>
+            </tr>
+            <tr>
+              <td><b>Inibidor de calcineurina</b></td>
+              <td>Tacrolimo/ciclosporina com monitorização de nível</td>
+              <td>Alguns casos (resposta rápida, ponte, etc.)</td>
+              <td>Alta taxa de recaída ao suspender se não houver estratégia.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- sec3 -->
+      <section id="sec3">
+        <h2>IgA — IgAN / IgA vasculite (IgAV) <span class="badge">KDIGO 2025</span></h2>
+        <h3>Como pensar</h3>
+        <ul>
+          <li>O motor principal é <b>suporte + redução de proteinúria</b>. Imunossupressor é “cirúrgico” e depende do risco/atividade.</li>
+          <li>Se houver <b>RPGN/crescentes</b> → tratar como vasculite/RPGN (ver seção ANCA/RPGN).</li>
+        </ul>
+
+        <div class="hr"></div>
+        <h3>Suporte “padrão ouro”</h3>
+        <ul>
+          <li>IECA/ARA-II para albuminúria/proteinúria (se tolerado).</li>
+          <li>Controle de PA, sal, estilo de vida, tratar dislipidemia se indicado.</li>
+          <li>Considerar terapias renoprotetoras conforme CKD e protocolos locais (nefro decide).</li>
+        </ul>
+
+        <div class="hr"></div>
+        <h3>Corticoide / imunossupressor</h3>
+        <div class="callout">
+          <strong>Regra prática:</strong> em IgAN, imunossupressão só faz sentido quando o risco de progressão é significativo e após suporte otimizado — e sempre pesando risco infeccioso.
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Contexto</th>
+              <th>Conduta</th>
+              <th>Esquemas comuns</th>
+              <th>Notas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Proteinúria persistente apesar de suporte otimizado</td>
+              <td>Considerar corticoide em casos selecionados</td>
+              <td>Protocolos variam (nefro individualiza)</td>
+              <td>Triar infecção latente, vacinar, considerar profilaxias.</td>
+            </tr>
+            <tr>
+              <td>RPGN/crescentes importantes</td>
+              <td>Imunossupressão tipo vasculite</td>
+              <td>Pulsos de MP + CF/RTX</td>
+              <td>Ver seção ANCA/RPGN.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- sec4 -->
+      <section id="sec4">
+        <h2>Nefrite lúpica (NeF) <span class="badge">classe importa</span></h2>
+        <h3>Resumo brutalmente honesto</h3>
+        <ul>
+          <li>Sem biópsia (na maioria dos casos), você fica “voando” na classe (III/IV/V) e intensidade.</li>
+          <li>Tratamento costuma ter: <b>indução</b> (mais forte) + <b>manutenção</b> (mais longo).</li>
+        </ul>
+
+        <div class="hr"></div>
+        <h3>Indução (exemplos usuais)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Regime</th>
+              <th>Injetável/oral</th>
+              <th>Posologia típica (adulto)</th>
+              <th>Pediatria</th>
+              <th>Vigilância</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>MP pulso</b> + MMF</td>
+              <td>IV + VO</td>
+              <td>MP 500–1000 mg IV/dia por 3 dias (varia) + MMF 1–1,5 g 2x/d</td>
+              <td>MP 10–30 mg/kg (máx 1 g) x 3 dias (varia) + MMF ~600 mg/m² 2x/d</td>
+              <td>Infecção, citopenias, GI, PA, glicemia.</td>
+            </tr>
+            <tr>
+              <td><b>MP pulso</b> + ciclofosfamida IV</td>
+              <td>IV</td>
+              <td>MP 0,5–1 g x 3 dias + CF 0,5–1 g/m² mensal (ou protocolo “Euro-Lupus” em alguns serviços)</td>
+              <td>CF 500–750 mg/m² mensal (varia)</td>
+              <td>Hemograma, gonadotoxicidade, profilaxias, MESNA conforme protocolo.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="hr"></div>
+        <h3>Manutenção (exemplos)</h3>
+        <ul>
+          <li><b>MMF</b> ou <b>azatioprina</b> (protocolo e perfil reprodutivo importam).</li>
+          <li>Reduzir corticoide ao mínimo efetivo (evitar “corticoide eterno”).</li>
+        </ul>
+      </section>
+
+      <!-- sec5 -->
+      <section id="sec5">
+        <h2>ANCA / RPGN / Síndrome pulmão-rim <span class="badge">emergência nefro</span></h2>
+
+        <div class="callout" style="border-left-color: rgba(255,107,107,.9)">
+          <strong>Quando pensar:</strong> queda rápida do eGFR em semanas + sedimento ativo (cilindros hemáticos) ± hemoptise/dessaturação.
+          Isso é “tempo é néfron” (e às vezes “tempo é vida”).
+        </div>
+
+        <h3>Esqueleto do tratamento (visão de serviço)</h3>
+        <ol>
+          <li><b>Internar</b>, coletar sorologias (ANCA/anti-GBM/C3/C4 etc.) e considerar biópsia (se seguro).</li>
+          <li><b>Pulsoterapia com metilprednisolona (IV)</b> + iniciar imunossupressor (CF ou RTX).</li>
+          <li>Suporte: controlar PA/volume, tratar infecção, considerar diálise se necessário.</li>
+        </ol>
+
+        <div class="hr"></div>
+        <h3>Posologias injetáveis “clássicas” (RPGN/vasculite)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Medicação</th>
+              <th>Adulto (típico)</th>
+              <th>Pediatria (típico)</th>
+              <th>Notas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Metilprednisolona IV (pulso)</b></td>
+              <td>500–1000 mg IV/dia por 3 dias (protocolos variam)</td>
+              <td>10–30 mg/kg/dia (máx 1 g) por 3 dias (protocolos variam)</td>
+              <td>Depois costuma seguir <b>prednisona VO</b> com desmame.</td>
+            </tr>
+            <tr>
+              <td><b>Prednisona VO</b> (após pulso)</td>
+              <td>~1 mg/kg/dia (muitos serviços), depois desmame programado</td>
+              <td>~1–2 mg/kg/dia (conforme protocolo), desmame</td>
+              <td>Evitar manutenção alta por muito tempo → infecção/metabólico.</td>
+            </tr>
+            <tr>
+              <td><b>Ciclofosfamida IV</b></td>
+              <td>0,5–0,75 g/m² a cada 2–4 semanas (varia)</td>
+              <td>500–750 mg/m² por pulso (varia)</td>
+              <td>Ajustar por eGFR/idade/leucócitos; MESNA conforme.</td>
+            </tr>
+            <tr>
+              <td><b>Rituximabe IV</b></td>
+              <td>375 mg/m² semanal x 4 <i>ou</i> 1 g IV D1 e D15</td>
+              <td>375 mg/m² semanal (nº de doses varia)</td>
+              <td>Checar HBV; pré-medicação; risco infeccioso.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- sec6 -->
+      <section id="sec6">
+        <h2>Doença anti-GBM (Goodpasture) <span class="badge">PLEX</span></h2>
+        <h3>Tríade terapêutica (geral)</h3>
+        <ul>
+          <li><b>Plasmaférese (PLEX)</b> até anti-GBM ficar indetectável (protocolos variam).</li>
+          <li><b>Ciclofosfamida</b> por ~2–3 meses.</li>
+          <li><b>Corticoide</b> com desmame ao longo de meses.</li>
+        </ul>
+
+        <div class="callout">
+          KDIGO resume que PLEX é realizada até anti-GBM negativar; ciclofosfamida 2–3 meses; corticoide com desmame em ~6 meses (ver “key takeaways”).
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Componente</th>
+              <th>Esquema (exemplo)</th>
+              <th>Notas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>PLEX</b></td>
+              <td>Diária (ou dias alternados) conforme protocolo, até negativar</td>
+              <td>Se hemorragia alveolar, geralmente agressivo.</td>
+            </tr>
+            <tr>
+              <td><b>Ciclofosfamida</b></td>
+              <td>VO ~2 mg/kg/dia (ou IV por pulso conforme serviço) por 2–3 meses</td>
+              <td>Monitorar hemograma; infecção; gonadotoxicidade.</td>
+            </tr>
+            <tr>
+              <td><b>Metilpred IV → pred VO</b></td>
+              <td>Pulsos IV 3 dias, depois pred VO e desmame</td>
+              <td>Vigilância metabólica e infecciosa.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- sec7 -->
+      <section id="sec7">
+        <h2>MPGN & C3 Glomerulopatia (C3G) <span class="badge">complemento</span></h2>
+        <h3>Ideia central</h3>
+        <ul>
+          <li>MPGN hoje é um “padrão” que pode ser por imunocomplexos (infecção, autoimune, crioglobulinemia) ou por disfunção de complemento (C3G).</li>
+          <li>Tratamento é: <b>corrigir causa</b> + suporte; imunossupressor em casos selecionados; terapias alvo do complemento em casos específicos (centro referência).</li>
+        </ul>
+
+        <div class="hr"></div>
+        <h3>Conduta prática</h3>
+        <ul>
+          <li>Pesquisar e tratar: HCV/HBV, endocardite/infecção crônica, doenças autoimunes, monoclonalidade (quando indicado).</li>
+          <li>Suporte forte (RAAS, PA, proteinúria, sal, edema).</li>
+          <li>Discussão com nefro para imunossupressor/terapia específica conforme biópsia e atividade.</li>
+        </ul>
+      </section>
+
+      <!-- sec8 -->
+      <section id="sec8">
+        <h2>Pós-infecciosa & GN associada à infecção <span class="badge">antibiótico não é “opcional”</span></h2>
+        <h3>Princípios</h3>
+        <ul>
+          <li>Tratamento é principalmente: <b>suporte</b> + <b>tratar foco infeccioso</b> (pele, garganta, endocardite, abscesso, osteomielite etc.).</li>
+          <li>Imunossupressão geralmente é <b>exceção</b> e só com nefro, quando há atividade grave e diagnóstico firme.</li>
+        </ul>
+        <div class="callout">
+          Se creatinina sobe rápido + sedimento pesado, sempre reavaliar: será que virou RPGN? tem crescents? tem ANCA/anti-GBM junto?
+        </div>
+      </section>
+
+      <!-- sec9 -->
+      <section id="sec9">
+        <h2>Complicações & profilaxias <span class="badge">não esquecer</span></h2>
+
+        <h3>1) Profilaxia para Pneumocystis (PJP)</h3>
+        <ul>
+          <li>Considerar em: altas doses de corticoide por tempo prolongado, ciclofosfamida, rituximabe, múltiplos imunossupressores (protocolos variam).</li>
+          <li>Esquema comum: <b>Sulfametoxazol-trimetoprim</b> (dose e frequência variam por protocolo; ajustar por função renal e idade).</li>
+        </ul>
+
+        <div class="hr"></div>
+        <h3>2) Vacinas e triagens antes de imunossupressão</h3>
+        <ul>
+          <li>Checar <b>HBV</b> antes de rituximabe (risco de reativação).</li>
+          <li>Revisar calendário vacinal (idealmente antes de imunossupressão intensa).</li>
+          <li>Considerar rastreio de TB latente conforme contexto local e risco.</li>
+        </ul>
+
+        <div class="hr"></div>
+        <h3>3) Os “3 vilões” do corticoide</h3>
+        <ul>
+          <li><b>Infecção</b> (o mais perigoso)</li>
+          <li><b>Metabólico</b> (glicemia, PA, ganho de peso)</li>
+          <li><b>Osso/olho</b> (osteoporose, catarata, glaucoma)</li>
+        </ul>
+      </section>
+
+      <!-- sec10 -->
+      <section id="sec10">
+        <h2>Quadros de emergência: quando correr <span class="badge">red flags</span></h2>
+        <ul>
+          <li><b>RPGN:</b> creatinina subindo rápido + sedimento ativo (cilindros hemáticos) → <span class="danger">nefrologia urgente</span>.</li>
+          <li><b>Pulmão-rim:</b> dispneia/hemoptise + IRA → <span class="danger">emergência</span>.</li>
+          <li><b>Hipercalemia</b>, edema agudo de pulmão, encefalopatia urêmica → pode precisar de diálise.</li>
+          <li><b>Nefrótico complicado:</b> trombose (dor em panturrilha, dispneia súbita), infecção (celulite/peritonite espontânea), hipovolemia/IRA.</li>
+          <li><b>HAS grave</b> com sintomas neurológicos/ocular.</li>
+        </ul>
+        <div class="callout" style="border-left-color: rgba(255,107,107,.9)">
+          <strong>Atalho mental:</strong> se tem “crescente”, “pulmão-rim”, “anti-GBM” ou “ANCA” → não é caso de “marcar retorno”, é caso de protocolo e tempo.
+        </div>
+      </section>
+
+      <!-- secRef -->
+      <section id="secRef">
+        <h2>Referências (links) <span class="badge">para você conferir</span></h2>
+        <ul>
+          <li><b>KDIGO 2021 Glomerular Diseases Guideline (Kidney Int. 2021)</b> — visão geral e capítulos por doença.<br/>
+            <span class="mini">PubMed:</span> <code class="inline">https://pubmed.ncbi.nlm.nih.gov/34556256/</code>
+          </li>
+          <li><b>KDIGO — página de diretrizes de Doenças Glomerulares</b> (inclui atualizações).<br/>
+            <code class="inline">https://kdigo.org/guidelines/gd/</code>
+          </li>
+          <li><b>KDIGO 2025 — Nephrotic Syndrome in Children (PDF)</b> — dose padrão de prednisona/prednisolona (60 mg/m² ou 2 mg/kg, com teto).<br/>
+            <code class="inline">https://kdigo.org/wp-content/uploads/2025/04/KDIGO-2025-Guideline-for-Nephrotic-Syndrome-in-Children.pdf</code>
+          </li>
+          <li><b>KDIGO 2025 — IgAN/IgAV (PDF)</b> — atualização do capítulo de IgA.<br/>
+            <code class="inline">https://kdigo.org/wp-content/uploads/2024/08/KDIGO-2025-IgAN-IgAV-Guideline.pdf</code>
+          </li>
+          <li><b>KDIGO “Key Takeaways” (PDF)</b> — resumo prático (inclui anti-GBM e pontos de terapia).<br/>
+            <code class="inline">https://kdigo.org/wp-content/uploads/2017/02/KDIGO-Glomerular-Disease-Guideline-Key-Takeaways.pdf</code>
+          </li>
+        </ul>
+        <div class="callout">
+          Quer que eu adapte isso para um “protocolo de bolso” do SUS/UPA (1 página) + um “protocolo de enfermaria” (mais completo), em HTML também? Dá pra deixar bem imprimível.
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<footer>
+  <div class="hr"></div>
+  <div>
+    <b>Nota:</b> Este material é educacional. Condutas e doses devem ser ajustadas por diagnóstico definitivo, protocolo local e avaliação do nefrologista.
+    Monitorização (hemograma, função renal, eletrólitos, níveis de calcineurina, sorologias) é parte do tratamento, não “opcional”.
+  </div>
+</footer>
+
+<script>
+  // NAV
+  const nav = document.getElementById('nav');
+  const sections = Array.from(document.querySelectorAll('.content section'));
+  nav.addEventListener('click', (e)=>{
+    const btn = e.target.closest('button');
+    if(!btn) return;
+    const id = btn.getAttribute('data-target');
+    nav.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    sections.forEach(s=>s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo({top: 0, behavior:'smooth'});
+  });
+
+  function jump(anchorId){
+    const el = document.getElementById(anchorId);
+    if(!el) return;
+    el.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  // CALCS
+  function calcMgKg(){
+    const w = parseFloat(document.getElementById('w').value);
+    const mgkg = parseFloat(document.getElementById('mgkg').value);
+    const freq = parseInt(document.getElementById('freq').value, 10);
+    const out = document.getElementById('outMgKg');
+    if(!w || !mgkg || !freq){
+      out.textContent = "Preencha peso, dose e frequência.";
+      return;
+    }
+    const perDose = w * mgkg;
+    const perDay = perDose * freq;
+    out.innerHTML = `<b>Dose por tomada:</b> ${perDose.toFixed(2)} mg<br/>
+                     <b>Dose total/dia:</b> ${perDay.toFixed(2)} mg (em ${freq} tomadas)`;
+  }
+
+  function calcBSA(){
+    const w = parseFloat(document.getElementById('w2').value);
+    const h = parseFloat(document.getElementById('h2').value);
+    const mgm2 = parseFloat(document.getElementById('mgm2').value);
+    const out = document.getElementById('outBSA');
+    if(!w || !h || !mgm2){
+      out.textContent = "Preencha peso, altura e dose mg/m².";
+      return;
+    }
+    const bsa = Math.sqrt((h * w) / 3600);
+    const perDay = bsa * mgm2;
+    out.innerHTML = `<b>BSA (Mosteller):</b> ${bsa.toFixed(3)} m²<br/>
+                     <b>Dose total/dia:</b> ${perDay.toFixed(2)} mg/dia`;
+  }
+</script>
+</body>
+</html>
